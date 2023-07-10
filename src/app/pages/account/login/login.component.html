@@ -1,0 +1,88 @@
+<app-breadcrumb [title]="'Login'" [breadcrumb]="'Login'"></app-breadcrumb>
+<!-- section start -->
+<section class="login-page section-b-space">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h3>Login</h3>
+                <div class="theme-card">
+                    <!-- <form class="theme-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" formControlName="username" id="username" placeholder="Email or Phone" required="">
+                            <span class="text-danger"
+                                *ngIf="(registerFormControl.username.touched || submitted) && registerFormControl.username.errors?.required">
+                                Username is required
+                            </span>
+                        
+                        </div>
+                        <div class="form-group">
+                            <label for="review">Password</label>
+                            <input type="password" class="form-control" formControlName="password" id="password" placeholder="Enter your password" required="">
+                            <span class="text-danger"
+                                *ngIf="(registerFormControl.password.touched || submitted) && registerFormControl.password.errors?.required">
+                                Password is required
+                            </span>
+                        </div>
+                        <button class="btn btn-solid">Login</button>
+                    </form> -->
+
+                    <form class="theme-form">
+                        <div class="form-group">
+                            <label for="email">Username</label>
+                            <!-- <input type="text" class="form-control" id="email" placeholder="Email" required=""> -->
+                            <input type="text" name="username" class="form-control"
+                                [formControl]="checkoutForm.controls['username']" value=""
+                                placeholder="Enter email or phonenumber" autocomplete="off">
+
+                            <div *ngIf="checkoutForm.controls.username.errors">
+                                <div *ngIf="checkoutForm.controls.username.touched && checkoutForm.controls.username.errors?.required"
+                                    class="text text-danger">
+                                    Username is required.
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="review">Password</label>
+                            <!-- <input type="password" class="form-control" id="review" placeholder="Enter your password"
+                                required=""> -->
+
+                            <input type="password" name="password" [formControl]="checkoutForm.controls['password']"
+                                value="" class="form-control" id="review" placeholder="Enter your password"
+                                autocomplete="off" required>
+                            <div *ngIf="checkoutForm.controls.password.errors">
+                                <div *ngIf="checkoutForm.controls.password.touched && checkoutForm.controls.password.errors?.required"
+                                    class="text text-danger">
+                                    Password is required.
+                                </div>
+                                <div *ngIf="checkoutForm.controls.password.errors?.minlength" class="text text-danger">
+                                    Minimum of 6 characters required
+                                </div>
+                                <div *ngIf="checkoutForm.controls.password.errors?.maxlength" class="text text-danger">
+                                    Minimum of 9 characters required
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-solid" [disabled]="!checkoutForm.valid" (click)="login()">
+                            Login
+                        </button>
+                        <button class="btn btn-solid" (click)="forgotpwd()" style="float: right;">
+                            Forgot password
+                        </button>
+                    </form>
+                    
+                </div>
+            </div>
+            <div class="col-lg-6 right-login">
+                <h3>New Customer</h3>
+                <div class="theme-card authentication-right">
+                    <h6 class="title-font">Create A Account</h6>
+                    <p>Sign up for a free account at our store. Registration is quick and easy. It allows you to be able to order from our shop. To start shopping click register.</p>
+                    <button class="btn btn-solid">Create an Account</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Section ends-->

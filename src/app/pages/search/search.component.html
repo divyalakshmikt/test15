@@ -1,0 +1,36 @@
+<app-breadcrumb [title]="'Search'" [breadcrumb]="'Search'"></app-breadcrumb>
+<!-- section start -->
+<section class="authentication-page section-b-space">
+  <div class="container">
+    <section class="search-block">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 offset-lg-3">
+            <form class="form-header">
+              <div class="form-group">
+                <!-- <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Search a Product"> -->
+                <input type="text" name="product_name" class="form-control"
+                  [formControl]="checkoutForm.controls['product_name']" value="" placeholder="Search a Product"
+                  autocomplete="off">
+                <div
+                  *ngIf="checkoutForm.controls.product_name.touched && checkoutForm.controls.product_name.errors?.required"
+                  class="text text-danger">
+                  Search a product
+                </div>
+
+              </div>
+              <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="col-sm-12 text-center">
+      <img src="assets/images/empty-search.jpg" class="img-fluid mb-4">
+      <h3>Sorry! Couldn't find the product you were looking For!!! </h3>
+      <p>Please check if you have misspelt something or try searching with other words.</p>
+      <a [routerLink]="['/shop/collection/left/sidebar']" class="btn btn-solid">continue shopping</a>
+    </div>
+  </div>
+</section>
+<!-- section end -->

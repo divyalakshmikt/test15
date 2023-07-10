@@ -1,0 +1,277 @@
+<app-header-one [sticky]="true"></app-header-one>
+
+<!-- Home slider start-->
+<section class="p-0">
+    <app-slider [sliders]="sliders" [textClass]="'text-center'" [category]="''" [buttonText]="'shop now'">
+    </app-slider>
+</section>
+<!-- Home slider End -->
+
+<!-- category collection banner start-->
+<div class="title1 section-t-space" *ngIf="category_collections.length>0">
+    <h4>exclusive offers</h4>
+    <h2 class="title-inner1">Available in Categories</h2>
+</div>
+
+<section class="pb-0" style="padding: 0;">
+    <div class="container">
+        <owl-carousel-o [options]="collectionSliderConfig" class="no-arrow">
+            <ng-container *ngFor="let collection of category_collections">
+                <ng-template carouselSlide>
+
+                    <a [routerLink]="['/shop/collection/left/sidebar']"
+                        [queryParams]="{ category: collection.type_name}">
+
+                        <div class="collection-banner p-right text-center">
+                            <img [src]="collection.img_url" class="img-fluid" alt="collection-banner"
+                                style="width: 100%; height: 256px;">
+                            <div class="contain-banner">
+                                <div>
+                                    <!-- <h5 style="text-transform: uppercase;">{{collection.type_name}}</h5> -->
+                                </div>
+                            </div>
+                        </div>
+
+                    </a>
+                </ng-template>
+            </ng-container>
+        </owl-carousel-o>
+
+    </div>
+</section>
+
+<!-- category collection banner End -->
+
+
+
+
+<!-- Brand collection banner start-->
+<div class="title1 section-t-space" *ngIf="brand_collections.length>0">
+    <h4>exclusive offers</h4>
+    <h2 class="title-inner1">Available in brand</h2>
+</div>
+
+<section class="pb-0" style="padding: 0;">
+    <div class="container">
+        <owl-carousel-o [options]="collectionSliderConfig" class="no-arrow">
+            <ng-container *ngFor="let collection of brand_collections">
+                <ng-template carouselSlide>
+
+                    <a [routerLink]="['/shop/collection/left/sidebar']" [queryParams]="{ brand: collection.type_name}">
+
+                        <div class="collection-banner p-right text-center">
+                            <img [src]="collection.img_url" class="img-fluid" alt="collection-banner"
+                                style="width: 100%; height: 256px;">
+                            <div class="contain-banner">
+                                <div>
+                                    <!-- <h5 style="text-transform: uppercase;">{{collection.type_name}}</h5> -->
+                                </div>
+                            </div>
+                        </div>
+
+                    </a>
+                </ng-template>
+            </ng-container>
+        </owl-carousel-o>
+
+    </div>
+</section>
+
+<!-- brand collection banner End -->
+
+
+
+<!-- Brand collection banner start-->
+<div class="title1 section-t-space" *ngIf="product_collections.length>0">
+    <h4>exclusive offers</h4>
+    <h2 class="title-inner1">Available in product</h2>
+</div>
+
+<section class="pb-0" style="padding: 0;">
+    <div class="container">
+        <owl-carousel-o [options]="collectionSliderConfig" class="no-arrow">
+            <ng-container *ngFor="let collection of product_collections">
+                <ng-template carouselSlide>
+
+                    <a [routerLink]="['/shop/collection/left/sidebar']" [queryParams]="{ search: collection.type_name}">
+
+                        <div class="collection-banner p-right text-center">
+                            <img [src]="collection.img_url" class="img-fluid" alt="collection-banner"
+                                style="width: 100%; height: 256px;">
+                            <div class="contain-banner">
+                                <div>
+                                    <!-- <h5 style="text-transform: uppercase;">{{collection.type_name}}</h5> -->
+                                </div>
+                            </div>
+                        </div>
+
+                    </a>
+                </ng-template>
+            </ng-container>
+        </owl-carousel-o>
+
+    </div>
+</section>
+
+<!-- brand collection banner End -->
+
+
+
+
+
+<!-- Product slider start-->
+<div class="title1 section-t-space">
+    <h4>wellness e-commerce</h4>
+    <h2 class="title-inner1">top brands</h2>
+</div>
+<!-- <div class="container">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="product-para">
+                <p class="text-center">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry,
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                </p>
+            </div>
+        </div>
+    </div>
+</div> -->
+<section class="section-b-space p-t-0">
+    <div class="container">
+        <div class="row">
+            <!-- Brand List -->
+            <!-- <div class="col-4" *ngFor="let item of brandList" style="object-fit: contain">
+                <div style=" width:50%; height:150px">
+                    <img src={{item.img_url}} alt="category image" style="object-fit: fill;width: 100%;  height: 100%;">
+                </div>
+                <br>
+            </div> -->
+            <div class="col-md-12">
+                <app-logo [logos]="brandList"></app-logo>
+            </div>
+            <!-- end list -->
+            <br>
+        </div>
+    </div>
+</section>
+<!-- Product slider End -->
+
+<!-- Parallax banner start-->
+<section class="p-0">
+    <!-- <div class="full-banner parallax-banner1 parallax text-center p-left"
+        [ngStyle]="{'background-image': 'url(assets/images/parallax/1.jpg)'}">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="banner-contain">
+                        <h2>2018</h2>
+                        <h3>fashion trends</h3>
+                        <h4>special offer</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+    <owl-carousel-o [options]="HomeSliderConfig" class="home-slider">
+        <ng-container *ngFor="let slider of specialBanner_collections">
+            <ng-template carouselSlide>
+                <a [routerLink]="['/shop/collection/left/sidebar']" [queryParams]="{ search: slider.type_name}">
+
+                    <div class="full-banner parallax-banner1 parallax text-center p-left"
+                        [ngStyle]="{'background-image': 'url('+slider.img_url+')'}">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="banner-contain">
+                                        <h2>2018</h2>
+                                        <h3></h3>
+                                        <h4>special offer</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </ng-template>
+        </ng-container>
+    </owl-carousel-o>
+
+
+
+
+</section>
+<!-- Parallax banner End -->
+<!-- <div class="categorylink" id="categorylink">
+    <p>Div1</p>
+</div> -->
+
+<!-- Tab product start-->
+<div class="title1 section-t-space">
+    <h4>exclusive categories</h4>
+    <h2 class="title-inner1">Available Categories</h2>
+</div>
+<section class="section-b-space p-t-0">
+    <div class="container">
+        <div class="row" style="text-align: center;">
+            <div class="col-4" *ngFor="let item of categoryList" style="object-fit: contain">
+                <a [routerLink]="['/shop/collection/left/sidebar']" [queryParams]="{ category: item.name}">
+                    <div style=" width:100%; height:200px">
+                        <img src={{item.img_url}} alt="category image"
+                            style="object-fit: cover;width: 100%;  height: 100%;">
+                    </div>
+                    <br>
+                    <p style="text-transform: uppercase;">{{item.name}}</p>
+                </a>
+            </div>
+            <br>
+
+
+        </div>
+    </div>
+</section>
+<!-- Tab product End -->
+
+<!-- services start-->
+<div class="container">
+    <section class="service border-section small-section">
+        <app-services></app-services>
+    </section>
+</div>
+<!-- services End -->
+
+<!-- blog section start-->
+<!-- <section class="blog p-t-0">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="title1 section-t-space">
+                    <h4>Recent Story</h4>
+                    <h2 class="title-inner1">from the blog</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <app-blog [blogs]="blog"></app-blog>
+            </div>
+        </div>
+    </div>
+</section> -->
+<!-- blog section End -->
+
+<!--  logo section start-->
+<!-- <section class="section-b-space">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <app-logo [logos]="logo"></app-logo>
+            </div>
+        </div>
+    </div>
+</section> -->
+<!--  logo section End-->
+
+<!-- <app-newsletter></app-newsletter> -->
+<app-footer-one></app-footer-one>
